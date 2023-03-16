@@ -55,35 +55,14 @@ async function scrapePage(url) {
   tide2_txt = tide2_txt.trim();
 
   browser.close();
-  const now = Date.now();
-  const date = new Date(now);
-  const readableDate = date.toDateString();
-  const time = date.toLocaleTimeString();
   return {
     break: breakLoc,
     waveHeight: sizeFt,
     wind: windSpeedDir,
     tide_1: `${tide1_txt} ${tide_1}`,
     tide_2: `${tide2_txt} ${tide_2}`,
-    date: `${readableDate} ${time}`,
+    date: Date.now(),
     url: url,
   };
 }
-
-const updateReports = async (URLS) => {
-  try {
-    if (typeof URLS === "object") {
-      const reports = [];
-      for (const url in URLS) {
-        const response = await scrapePage(URLS[url]);
-        reports.push(response);
-      }
-      return reports;
-    }
-    return scrapePage(URLS);
-  } catch (e) {
-    throw new Error(e);
-  }
-};
-
-module.exports = updateReports;
+module.exports = scrapePage;
