@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable */
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -36,9 +36,10 @@ mongoose
   });
 
 async function scheduleScraper() {
+  console.log("------SCRAPING-IN-PROGRESS------");
   await scrapeAndSave();
   cron.schedule("59 * * * *", async function () {
-    console.log("------SCRAPING IN PROGRESS------");
+    console.log("------SCRAPING-IN-PROGRESS------");
     await scrapeAndSave();
   });
 }
