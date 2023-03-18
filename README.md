@@ -1,7 +1,8 @@
 # surf-app
 
-Application to view current surf reports for Northern California
+Application to view current surf reports for Bay Area California
 
-# utilizing puppeteer for web scraping
+### Utilizing puppeteer for web scraping
 
-- Pull latest surf report data from various websites.
+- Use Node, node-cron, puppeteer, and express, and mongoose to schedule, scrape, store data, and send it to frontend.
+- Display on simple Vue frontend.
